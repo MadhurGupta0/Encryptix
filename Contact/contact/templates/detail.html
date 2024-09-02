@@ -1,0 +1,32 @@
+{%extends 'base.html' %}
+{%load static%}
+{%block title%}
+{{item.name}}
+{% endblock%}
+{%block content%}
+<div class="w-full rows-auto md:gap-6 md: flex sm: flex ">
+
+    <div class=" w-full p-6  md:rounded-xl md: p-6 sm:rounded-xl  sm: p-6">
+        <div class="w-full ">
+        <h1 class="mb-6 text-3xl ">{{item.name}}</h1>
+        <h2 class=" mt-6  text-gray-500 text-xl"><strong>Phone_number:</strong>{{item.phone_number}}</h2>
+        <h2 class=" mt-6  text-gray-500 text-xl"><strong> Gmail:</strong>{{item.gmail}}</h2>
+        {% if item.address %}
+         <h2 class="mt-6  text-gray-500 text-xl"><strong>Address:</strong>{{item.address}}</h2>
+        {% endif %}
+          <div class=" mt-6  rounded-xl">
+              <a href="{%url 'edit' item.id%}" class="inline-block px-6 py-3 text-lg font-semibold bg-green-500 hover:bg-green-700 text-white rounded-xl">
+            Edit
+        </a>
+              <a href="{% url 'delete' item.id %}" class="inline-block px-6 py-3 text-lg font-semibold bg-red-500 text-white rounded-xl">
+            delete
+        </a>
+
+          </div>
+            </div>
+   </div>
+
+
+</div>
+
+{% endblock %}
